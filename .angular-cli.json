@@ -19,9 +19,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.sass"
+        "styles.sass",
+        "../node_modules/bulma/css/bulma.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/socket.io-client/dist/socket.io.slim.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

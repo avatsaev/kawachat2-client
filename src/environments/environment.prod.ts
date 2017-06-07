@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  socket: {
+    base_url: 'http://127.0.0.1:10006',
+    opts: {}
+  }
 };
