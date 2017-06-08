@@ -26,31 +26,7 @@
 
   <div class="hero column chat-wrapper is-9 is-dark">
 
-
-
-
-
-    <div class="msg-list " *ngIf="currentChat"  #list [scrollTop]="list.scrollHeight">
-
-      <div class="columns is-mobile" *ngFor="let m of currentChat.msgList">
-
-        <div [ngClass]="{' is-offset-1 me': m.usr == chatService.username}" class="chat-bubble column is-11">
-          <p >{{m.usr}}: {{m.msg}} </p>
-        </div>
-      </div>
-
-
-    </div>
-
-
-    <div class="columns chat-bar">
-      <div class="column is-10">
-        <input (keyup.enter)="send()"  class="input" [(ngModel)] = 'currentMsg'>
-      </div>
-      <div class="column " style="padding-right: 30px">
-        <button class="button is-success is-fullwidth" (click)="send()"  > SEND </button>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
 
   </div>
 

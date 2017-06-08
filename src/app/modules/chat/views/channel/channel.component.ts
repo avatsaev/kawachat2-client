@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import {Chat} from '../../models/chat';
 import {ActivatedRoute} from '@angular/router';
 import {ChatService} from '../../services/chat.service';
-import {Chat} from "../../models/chat";
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.sass']
+  selector: 'app-channel',
+  templateUrl: './channel.component.html',
+  styleUrls: ['./channel.component.sass']
 })
-export class ChatComponent implements OnInit {
+export class ChannelComponent implements OnInit {
 
   currentChat: Chat;
 
@@ -20,10 +20,10 @@ export class ChatComponent implements OnInit {
     this.chatService.socket.emit('send', {msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq });
     this.currentChat.msgList.push({msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq});
     this.currentMsg = '';
-
   }
 
   ngOnInit() {
+
     this.activatedRoute.params.subscribe(params => {
       this.chatService.join(this.chatService.username,  params['frq']);
       this.currentChat = this.chatService.getChat(params['frq']);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ChatService} from '../../services/chat.service';
+import {ChatService} from '../../modules/chat/services/chat.service';
 import {Router} from "@angular/router";
 
 @Component({
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   username: string;
   frq: string;
 
-  constructor(private socketService: ChatService, private router: Router) { }
+  constructor(private chatService: ChatService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   join() {
 
     if (this.frq.length && this.username.length) {
-      this.socketService.username = this.username;
+      this.chatService.username = this.username;
       this.router.navigate(['/chat', this.frq]);
     }
   }

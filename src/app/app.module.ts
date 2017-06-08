@@ -1,30 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HomeComponent} from './views/home/home.component';
-import {ChatComponent} from './views/chat/chat.component';
-import {FormsModule} from '@angular/forms';
-import {ChatService} from './services/chat.service';
+import { HomeComponent } from './views/home/home.component';
+import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import {StringifyPipe} from './pipes/stringify.pipes';
+import { ChatModule } from './modules/chat/chat.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChatComponent,
-    ToolbarComponent,
-    StringifyPipe
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    FormsModule
+    ChatModule,
   ],
-  providers: [ChatService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

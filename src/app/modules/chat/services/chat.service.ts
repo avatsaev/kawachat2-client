@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {Observable} from 'rxjs/Observable';
-import {Chat} from "../models/chat";
+import {Chat} from '../models/chat';
 import { UUID } from 'angular2-uuid';
 
 @Injectable()
@@ -32,7 +32,8 @@ export class ChatService {
   }
 
   join(username: string, frq: string) {
-    if(username){
+
+    if (username) {
       this.username = username;
     } else {
       this.username = UUID.UUID();
@@ -42,11 +43,8 @@ export class ChatService {
     if (!chat) {
       chat = new Chat(frq, this.listen('chat', frq));
       this.activeChats.push(chat);
+      console.log('Active chats:', this.activeChats)
     }
-  }
-
-  chatExists(frq: string) {
-    return this.activeChats.filter( c => c.frq === frq).length > 0;
   }
 
   getChat(frq){
