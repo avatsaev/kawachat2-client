@@ -43,7 +43,6 @@ export class ChatService {
     if (!chat) {
       chat = new Chat(frq, this.listen('chat', frq));
       this.activeChats.push(chat);
-      console.log('Active chats:', this.activeChats)
     }
   }
 
@@ -62,7 +61,6 @@ export class ChatService {
     return new Observable(observer => {
 
       this.socket.on(event, data => {
-        console.log(`### incoming for event ${event}: `, data);
         if (data.frq === frq) {
           observer.next(data);
         }
