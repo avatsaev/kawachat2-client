@@ -1,4 +1,4 @@
-<section class="hero is-fullheight is-dark is-bold">
+<section class="hero  is-blue is-bold">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-vcentered">
@@ -9,16 +9,16 @@
           <div class="box">
             <label class="label">Name</label>
             <p class="control">
-              <input [(ngModel)]="username" class="input" type="text" placeholder="John Smith">
+              <input [(ngModel)]="username" class="input" type="text">
             </p>
-            <label class="label">Username</label>
+            <label class="label">Channel</label>
             <p class="control">
-              <input [(ngModel)]="frq" class="input" type="text" placeholder="jsmith">
+              <input (keyup.enter) ="join()"  [(ngModel)]="frq" class="input" type="text">
             </p>
 
             <hr>
-            <p class="control">
-              <button (click)="join()" class="button is-primary">JOIN</button>
+            <p class="control is-clearfix">
+              <button  (click)="join()" class="button is-success is-pulled-right">JOIN</button>
 
             </p>
           </div>

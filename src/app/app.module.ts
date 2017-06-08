@@ -6,21 +6,25 @@ import { AppComponent } from './app.component';
 import {HomeComponent} from './views/home/home.component';
 import {ChatComponent} from './views/chat/chat.component';
 import {FormsModule} from '@angular/forms';
-import {SocketService} from './services/socket.service';
+import {ChatService} from './services/chat.service';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {StringifyPipe} from './pipes/stringify.pipes';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChatComponent
+    ChatComponent,
+    ToolbarComponent,
+    StringifyPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [SocketService],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

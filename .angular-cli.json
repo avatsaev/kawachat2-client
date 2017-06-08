@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.sass",
-        "../node_modules/bulma/css/bulma.css"
+        "../node_modules/bulma/css/bulma.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
         "../node_modules/socket.io-client/dist/socket.io.slim.js"

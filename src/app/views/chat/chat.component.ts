@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {SocketService} from '../../services/socket.service';
+import {ChatService} from '../../services/chat.service';
+import {Chat} from "../../models/chat";
 
 @Component({
   selector: 'app-chat',
@@ -9,29 +10,23 @@ import {SocketService} from '../../services/socket.service';
 })
 export class ChatComponent implements OnInit {
 
-  messageList: string[] =  [];
-  currentFrq = '';
+  currentChat: Chat;
+
   currentMsg = '';
 
-  constructor(private activatedRoute: ActivatedRoute, private socketService: SocketService) { }
+  constructor(private activatedRoute: ActivatedRoute, public chatService: ChatService) { }
 
   send() {
-    this.socketService.socket.emit('send', {msg: this.currentMsg, usr: this.socketService.username, frq: this.currentFrq });
+    this.chatService.socket.emit('send', {msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq });
+    this.currentChat.msgList.push({msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq});
     this.currentMsg = '';
+
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-
-      this.currentFrq = params['frq'];
-
-      this.socketService.join(this.socketService.username,  params['frq']);
-      this.socketService.listen('chat').subscribe(res => {
-        console.log(res);
-        this.messageList.push(`${res.usr}: ${res.msg}`);
-      });
-
-
+      this.chatService.join(this.chatService.username,  params['frq']);
+      this.currentChat = this.chatService.getChat(params['frq']);
     })
   }
 
