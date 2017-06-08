@@ -17,9 +17,13 @@ export class ChatComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, public chatService: ChatService) { }
 
   send() {
-    this.chatService.socket.emit('send', {msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq });
-    this.currentChat.msgList.push({msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq});
-    this.currentMsg = '';
+
+    if (this.currentMsg.length) {
+      this.chatService.socket.emit('send', {msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq });
+      this.currentChat.msgList.push({msg: this.currentMsg, usr: this.chatService.username, frq: this.currentChat.frq});
+      this.currentMsg = '';
+    }
+
 
   }
 
