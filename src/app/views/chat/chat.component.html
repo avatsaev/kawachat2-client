@@ -1,6 +1,6 @@
 <div class="columns">
 
-  <aside class="column is-2 aside hero is-fullheight">
+  <aside class="column is-3 aside hero is-fullheight">
     <div>
 
       <div class="main">
@@ -24,7 +24,7 @@
     </div>
   </aside>
 
-  <div class="hero column chat-wrapper is-10 is-dark">
+  <div class="hero column chat-wrapper is-9 is-dark">
 
 
 
@@ -34,7 +34,7 @@
 
       <div class="columns is-mobile" *ngFor="let m of currentChat.msgList">
 
-        <div [ngClass]="{' is-offset-1 me': m.usr == chatService.username}" class="chat-bubble column is-11">
+        <div [ngClass]="{' is-offset-2 me': m.usr == chatService.username}" class="chat-bubble column  is-9">
           <p ><b>{{m.usr}}</b>: {{m.msg}} </p>
         </div>
       </div>
