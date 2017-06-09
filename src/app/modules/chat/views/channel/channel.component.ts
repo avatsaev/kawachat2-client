@@ -6,7 +6,8 @@ import {ChatService} from '../../services/chat.service';
 @Component({
   selector: 'app-channel',
   templateUrl: './channel.component.html',
-  styleUrls: ['./channel.component.sass']
+  styleUrls: ['./channel.component.sass'],
+  moduleId: module.id,
 })
 export class ChannelComponent implements OnInit {
 

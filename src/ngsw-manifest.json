@@ -1,0 +1,13 @@
+{
+  "dynamic": {
+    "group": {
+      "name": "kc2",
+      "cache": {
+        "optimizeFor": "freshness",
+        "maxAgeMs": "3600000",
+        "maxEntries": "20",
+        "strategy": "lru"
+      }
+    }
+  }
+}
