@@ -5,7 +5,7 @@ import {HomeComponent} from './views/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   {
     path: 'home',
     component: HomeComponent
