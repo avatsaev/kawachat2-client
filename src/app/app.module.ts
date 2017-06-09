@@ -6,6 +6,8 @@ import { HomeComponent } from './views/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ChatModule } from './modules/chat/chat.module';
+import { LoadingModule } from './modules/loading/loading.module';
+
 
 
 
@@ -16,6 +18,8 @@ import { ChatModule } from './modules/chat/chat.module';
     ToolbarComponent
   ],
   imports: [
+    BrowserModule.withServerTransition({appId: 'kc2'}),
+    LoadingModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
