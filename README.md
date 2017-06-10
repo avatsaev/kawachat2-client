@@ -4,6 +4,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+Simple Angular 4 chat app with socket.io 
+
 Live demo: https://kawachat2.surge.sh/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
