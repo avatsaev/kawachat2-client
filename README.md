@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-Live demo: http://kawachat2.surge.sh/
+Live demo: https://kawachat2.surge.sh/chat/random
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
