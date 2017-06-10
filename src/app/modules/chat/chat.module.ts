@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {StringifyPipe} from './pipes/stringify.pipes';
+import {StringifyPipe} from './pipes/stringify.pipe';
 import {FormsModule} from '@angular/forms';
 import {ChatComponent} from './views/chat/chat.component';
 import {ChatService} from './services/chat.service';
