@@ -6,8 +6,6 @@ import {ChatService} from './services/chat.service';
 import {ChannelComponent} from './views/channel/channel.component';
 import {ChatRoutingModule} from './chat-routing.module';
 import {CommonModule} from '@angular/common';
-import {Http} from "@angular/http";
-
 
 @NgModule({
   declarations: [
@@ -19,7 +17,7 @@ import {Http} from "@angular/http";
   imports: [
     FormsModule,
     ChatRoutingModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [ChatService],
 })

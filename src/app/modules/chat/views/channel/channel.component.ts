@@ -24,18 +24,17 @@ export class ChannelComponent implements OnInit {
   send() {
     if (this.currentMsg.length) {
 
-      this.chatService.socket.emit('send', {msg: this.currentMsg, usr: this.commonService.username, frq: this.chatService.activeChat.frq });
-      this.chatService.activeChat.msgList.push({msg: this.currentMsg, usr: this.commonService.username, frq: this.chatService.activeChat.frq});
-      this.currentMsg = '';
+      this.chatService.activeChat.send(this.currentMsg, this.commonService.username);
+      this.currentMsg = "";
     }
   }
 
   ngOnInit() {
 
     this.activatedRoute.params.subscribe(params => {
-      console.log(params)
+      console.log(params);
       this.chatService.join(params['frq']);
-      this.chatService.activeChat = this.chatService.getChat(params['frq']);
+
     })
   }
 

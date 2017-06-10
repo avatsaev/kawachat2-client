@@ -14,9 +14,9 @@
 
       <div class="main">
         <div class="title"><span class="icon"><i class="fa fa-star"></i></span>FEATURED CHATS</div>
-        <a *ngFor="let chat of chatService.featuredChats" [routerLink]="['/chat', chat.frq]" routerLinkActive="active" class="item">
+        <a *ngFor="let frq of chatService.featuredChats" [routerLink]="['/chat', frq]" routerLinkActive="active" class="item">
           <span class="icon"><i class="fa fa-comment"></i></span>
-          <span class="name">{{chat.frq | stringify}} </span>
+          <span class="name">{{frq | stringify}} </span>
         </a>
 
       </div>

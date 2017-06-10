@@ -9,6 +9,7 @@ import { ChatModule } from './modules/chat/chat.module';
 import { LoadingModule } from './modules/loading/loading.module';
 import {CommonService} from "./services/common.service";
 import {HttpModule} from "@angular/http";
+import {Ng2Webstorage} from "ngx-webstorage";
 
 
 
@@ -27,6 +28,7 @@ import {HttpModule} from "@angular/http";
     FormsModule,
     AppRoutingModule,
     ChatModule,
+    Ng2Webstorage
   ],
   providers: [CommonService],
   bootstrap: [AppComponent]
