@@ -1,28 +1,31 @@
-# Kawachat2
+# Kawachat2 PWA
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
+
+The server is available here: https://github.com/avatsaev/kawachat2-server
+
+It features Route Lazy Loading and Angular Service Worker for local caching, no need to run an http server once the serice worker cached the app.
+
+## Install
+
+`$ npm install`
+
+or if you're using yarn 
+
+`$ yarn`
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `npm run pwa-build` to build the project in AoT and Production mode with the Angular Service Worker for local caching. The build artifacts will be stored in the `dist/` directory. 
 
-## Running unit tests
+Use a simple http server to serve the static assets from `dist` folder:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ex: `http-server ./dist`
 
-## Running end-to-end tests
+The app is available at http://localhost:8080
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Considering that Route Lazy Loading doesn't serve the entire app on first visit for faster initial load, but pushes module chunks on the fly as you activate the approritae routes, you'll need to visit all app routes (/home & /chat) in order for the Service Worker to cache the entire app. After that, you can stop the http server and use the app locally by going to http://localhost:8080 .
