@@ -25,6 +25,16 @@ or if you're using yarn
 
 `$ yarn`
 
+## Service Worker performance analysis
+
+### First load without service worker:
+
+![](http://i.imgur.com/GSfjAF4.png)
+
+### With service worker
+
+![](http://i.imgur.com/GfMJWm6.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
