@@ -12,7 +12,6 @@ import {CommonService} from "../../../../services/common.service";
 })
 export class ChannelComponent implements OnInit {
 
-  currentChat: Chat;
 
   currentMsg = '';
 
@@ -25,19 +24,18 @@ export class ChannelComponent implements OnInit {
   send() {
     if (this.currentMsg.length) {
 
-      this.chatService.socket.emit('send', {msg: this.currentMsg, usr: this.commonService.username, frq: this.currentChat.frq });
-      this.currentChat.msgList.push({msg: this.currentMsg, usr: this.commonService.username, frq: this.currentChat.frq});
+      this.chatService.socket.emit('send', {msg: this.currentMsg, usr: this.commonService.username, frq: this.chatService.activeChat.frq });
+      this.chatService.activeChat.msgList.push({msg: this.currentMsg, usr: this.commonService.username, frq: this.chatService.activeChat.frq});
       this.currentMsg = '';
     }
   }
 
   ngOnInit() {
 
-    console.log(this.commonService)
-
     this.activatedRoute.params.subscribe(params => {
+      console.log(params)
       this.chatService.join(params['frq']);
-      this.currentChat = this.chatService.getChat(params['frq']);
+      this.chatService.activeChat = this.chatService.getChat(params['frq']);
     })
   }
 

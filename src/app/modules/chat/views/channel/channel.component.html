@@ -1,6 +1,6 @@
-<div class="msg-list " *ngIf="currentChat"  #list [scrollTop]="list.scrollHeight">
+<div class="msg-list " *ngIf="chatService.activeChat"  #list [scrollTop]="list.scrollHeight">
 
-  <div class="columns is-mobile" *ngFor="let m of currentChat.msgList">
+  <div class="columns is-mobile" *ngFor="let m of chatService.activeChat.msgList">
 
     <div [ngClass]="{' is-offset-1 me': m.usr == commonService.username}" class="chat-bubble column is-10">
       <p ><b>{{m.usr}}</b>: {{m.msg}} </p>

@@ -9,6 +9,7 @@
     "sw": "cp node_modules/@angular/service-worker/bundles/worker-basic.min.js dist/service-worker.js && ./node_modules/ng-pwa-tools/bin/ngu-sw-manifest.js --module src/app/app.module.ts --out dist/ngsw-manifest.json",
     "pwa-build": "ng build --prod --aot && npm run sw && npm run app-shell",
     "app-shell": "./node_modules/ng-pwa-tools/bin/ngu-app-shell.js --url /loading --module src/app/app.module.ts --insert-module src/app/modules/loading/loading.module.ts --out dist/index.html",
+    "surge-deploy": "npm run pwa-build && cp dist/index.html dist/200.html && surge --domain kawachat2.surge.sh --project ./dist ",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -39,7 +40,7 @@
   "devDependencies": {
     "@angular/cli": "1.1.0",
     "@angular/compiler-cli": "^4.0.0",
-    "@angular/language-service": "^4.0.0",
+    "@angular/language-service": "^4.1.3",
     "@types/jasmine": "2.5.45",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.0.1",

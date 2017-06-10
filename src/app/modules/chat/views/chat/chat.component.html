@@ -2,6 +2,15 @@
 
   <aside class="column is-3 aside hero is-fullheight">
     <div>
+      <div class="main">
+        <div class="title"><span class="icon"><i class="fa fa-bar-chart"></i></span>STATS</div>
+        <p><b>User count:</b> {{chatService.totalClients}}</p>
+        <p><b>Room count:</b> {{chatService.totalRooms}}</p>
+
+      </div>
+
+
+
 
       <div class="main">
         <div class="title"><span class="icon"><i class="fa fa-star"></i></span>FEATURED CHATS</div>
@@ -13,12 +22,45 @@
       </div>
 
       <div class="main">
-        <div class="title"> <span class="icon"><i class="fa fa-comments"></i></span> ACTIVE CHATS</div>
 
-        <a *ngFor="let chat of chatService.activeChats" [routerLink]="['/chat', chat.frq]" routerLinkActive="active" class="item">
-          <span class="icon"><i class="fa fa-comment"></i></span>
-          <span class="name">{{chat.frq | stringify}} <b>({{chat.msgList.length}})</b></span>
-        </a>
+        <div class="title">
+          <span class="icon"><i class="fa fa-comments"></i></span> ACTIVE CHATS
+        </div>
+
+
+        <span *ngFor="let chat of chatService.activeChats" class="columns active-chat-link">
+
+          <span
+            [routerLink]="['/chat', chat.frq]"
+            routerLinkActive="active"
+            class="column is-11 chat-link"
+          >
+
+              <span class="title-icon"><i class="fa fa-comment"></i></span>
+              <span class="name">
+                {{chat.frq | stringify}}
+
+                <p class="active-room-info">
+
+                  <b>Users: </b>{{chat.totalClients}}
+                  <br>
+                  <b>Messages: </b> {{chat.msgList.length}}
+                </p>
+
+              </span>
+
+          </span>
+
+          <span
+            (click)="leaveChat(chat.frq)"
+            class=" leave-chat-cta icon  column is-1">
+
+              <i class="fa fa-times-circle" aria-hidden="true"></i>
+
+          </span>
+
+        </span>
+
 
       </div>
     </div>

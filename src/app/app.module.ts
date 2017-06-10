@@ -8,6 +8,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ChatModule } from './modules/chat/chat.module';
 import { LoadingModule } from './modules/loading/loading.module';
 import {CommonService} from "./services/common.service";
+import {HttpModule} from "@angular/http";
 
 
 
@@ -22,6 +23,7 @@ import {CommonService} from "./services/common.service";
     BrowserModule.withServerTransition({appId: 'kc2'}),
     LoadingModule,
     BrowserModule,
+    HttpModule,
     FormsModule,
     AppRoutingModule,
     ChatModule,

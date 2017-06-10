@@ -1,14 +1,41 @@
 
 .chat-wrapper
   position: relative
-
+.leave-chat-cta:hover
+  color: white
+.leave-chat-cta
+  cursor: pointer
 .aside
   background-color: #232B2D
   min-height: calc(100vh - 40px)
+  max-height: calc(100vh - 40px)
 
+  overflow-y: scroll
   .main
     padding: 20px
     color: #6F7B7E
+    .chat-link
+      cursor: pointer
+
+      outline: 0
+    .active-chat-link
+      padding: 10px 15px
+      color: #6F7B7E
+      .active-room-info
+        border-top: 1px #bdc3c7 solid
+
+        padding-top: 5px
+        margin-top: 5px
+      .title-icon .fa
+        font-size: 20px
+
+
+      .name
+        font-size: 12px
+      .active
+        color: #F6F7F7
+        background-color: #6F7B7E
+        border-radius: 10px
     .item
       display: block
       padding: 10px 15px
@@ -17,6 +44,13 @@
         color: #F6F7F7
         background-color: #6F7B7E
         border-radius: 10px
+
+    //a.active
+    //  color: #F6F7F7
+    //  background-color: #6F7B7E
+    //  border-radius: 10px
+    //  padding: 15px
+
     .icon .fa
       font-size: 14px
       padding-right: 15px
