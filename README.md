@@ -1,4 +1,4 @@
-# Kawachat2 PWA
+# Kawachat 2 PWA
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
