@@ -5,21 +5,19 @@ import {environment} from '../../../../environments/environment';
 import {Observable} from 'rxjs/Observable';
 import {Chat} from '../models/chat';
 import { UUID } from 'angular2-uuid';
+import {CommonService} from "../../../services/common.service";
 
 @Injectable()
 export class ChatService {
 
 
-  socket;
-  username: string;
+  socket: any;
 
   socketConnected$ = new BehaviorSubject<boolean>(false);
   activeChats = [];
   featuredChats = [];
 
-  constructor() {
-
-
+  constructor(private commonService: CommonService) {
     this.socket = io(environment.socket.base_url, environment.socket.opts);
     this.socket.on('connect', () => this.socketConnected$.next(true));
     this.socket.on('disconnect', () => this.socketConnected$.next(false));
@@ -31,14 +29,14 @@ export class ChatService {
     ].map (frq => this.featuredChats.push(new Chat(frq, this.listen('chat', frq))));
   }
 
-  join(username: string, frq: string) {
+  join(frq: string) {
 
-    if (username) {
-      this.username = username;
-    } else {
-      this.username = UUID.UUID();
+    if(!this.commonService.username){
+      this.commonService.username = UUID.UUID();
     }
-    this.socket.emit('join', {frq, username});
+
+
+    this.socket.emit('join', { frq, username: this.commonService.username });
     let chat = this.getChat(frq)
     if (!chat) {
       chat = new Chat(frq, this.listen('chat', frq));
@@ -51,7 +49,6 @@ export class ChatService {
   }
 
   leave(frq: string) {
-    // this.username = username;
     this.socket.emit('leave', {frq});
     this.activeChats.filter( c => c.frq !== frq);
   }

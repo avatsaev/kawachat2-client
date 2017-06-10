@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ChatService} from '../../modules/chat/services/chat.service';
 import {Router} from "@angular/router";
+import {CommonService} from "../../services/common.service";
 
 @Component({
   selector: 'app-home',
@@ -13,16 +14,19 @@ export class HomeComponent implements OnInit {
   username: string;
   frq: string;
 
-  constructor(private chatService: ChatService, private router: Router) { }
+  constructor(private commonService: CommonService, private router: Router) { }
 
   ngOnInit() {
+    this.username = this.commonService.username;
   }
 
 
   join() {
 
     if (this.frq.length && this.username.length) {
-      this.chatService.username = this.username;
+
+      this.commonService.username = this.username;
+      console.log(this.commonService.username)
       this.router.navigate(['/chat', this.frq]);
     }
   }

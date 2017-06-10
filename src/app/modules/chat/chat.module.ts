@@ -7,6 +7,7 @@ import {ChannelComponent} from './views/channel/channel.component';
 import {ChatRoutingModule} from './chat-routing.module';
 import {CommonModule} from '@angular/common';
 
+
 @NgModule({
   declarations: [
     StringifyPipe,

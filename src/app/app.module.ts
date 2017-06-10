@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ChatModule } from './modules/chat/chat.module';
 import { LoadingModule } from './modules/loading/loading.module';
+import {CommonService} from "./services/common.service";
 
 
 
@@ -25,7 +26,7 @@ import { LoadingModule } from './modules/loading/loading.module';
     AppRoutingModule,
     ChatModule,
   ],
-  providers: [],
+  providers: [CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
