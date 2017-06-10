@@ -25,6 +25,7 @@ export class ChatService {
   activeChat: Chat;
   featuredChats = [
     'programming',
+    'technology',
     'graphic_design',
     'gaming',
     'random'
