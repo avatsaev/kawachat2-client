@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 The server is available here: https://github.com/avatsaev/kawachat2-server
 
-It features Route Lazy Loading and Angular Service Worker for local caching, no need to run an http server once the serice worker cached the app.
+It features Route Lazy Loading and Angular Service Worker for local caching, no need to run an http server once the service worker cached the app.
 ![](http://i.imgur.com/bqGF8Gv.png)
 
 ![](http://i.imgur.com/1rDosd6.png)
