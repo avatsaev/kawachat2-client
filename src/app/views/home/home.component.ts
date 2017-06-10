@@ -24,9 +24,7 @@ export class HomeComponent implements OnInit {
   join() {
 
     if (this.frq.length && this.username.length) {
-
       this.commonService.username = this.username;
-      console.log(this.commonService.username)
       this.router.navigate(['/chat', this.frq]);
     }
   }
