@@ -6,6 +6,8 @@ The server is available here: https://github.com/avatsaev/kawachat2-server
 
 It features Route Lazy Loading and Angular Service Worker for local caching, no need to run an http server once the serice worker cached the app.
 
+![](http://i.imgur.com/nSe55Tk.png)
+
 ## Install
 
 `$ npm install`
