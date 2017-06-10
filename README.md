@@ -1,5 +1,7 @@
 # Kawachat 2 PWA
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
 The server is available here: https://github.com/avatsaev/kawachat2-server
