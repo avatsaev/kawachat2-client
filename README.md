@@ -49,4 +49,3 @@ ex: `http-server ./dist`
 
 The app is available at http://localhost:8080
 
-Considering that Route Lazy Loading doesn't serve the entire app on first visit for faster initial load, but pushes module chunks on the fly as you activate the approritae routes, you'll need to visit all app routes (/home & /chat) in order for the Service Worker to cache the entire app. After that, you can stop the http server and use the app locally by going to http://localhost:8080 .
